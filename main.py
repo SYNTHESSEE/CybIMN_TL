@@ -9,7 +9,6 @@ monitor_events_queue = Queue()
 
 # ==============================================================
 # МОДУЛЬ А И Б. Конфигурация, совместимая с тестами.
-# Мы добавили все нужные словари по задачам (Начальный/Продвинутый).
 # ==============================================================
 
 traffic_lights_allowed_configurations =[
@@ -54,7 +53,7 @@ class ModeChecker:
             return False
 
 # ==============================================================
-# РАЗДЕЛ ЗАЩИТ (Остается наш мощный анти-флуд + логер)
+# РАЗДЕЛ ЗАЩИТ (Остается мощный анти-флуд + логер)
 # ==============================================================
 
 class LgoLog:
@@ -121,7 +120,7 @@ class Monitor(Thread):
         if event.source in ["ControlSystem", "CitySystemConnector"] \
                 and event.destination == "LightsGPIO" \
                 and event.operation in ["set_mode", "set_state"]:
-            # Фильтрация белого списка конфигураций (наш ModeChecker):
+            # Фильтрация белого списка конфигураций ModeChecker:
             if self._mode_checker.is_allowed(event.parameters):
                 authorized = True
             else:
@@ -224,7 +223,7 @@ class LightsGPIO(Thread):
     def stop(self):
         self.is_running = False
 
-# Заглушка, чтобы тесты не валились если проверят наличие классов
+# Заглушка на наличие классов
 class CitySystemConnector(Thread):
     def __init__(self, monitor_queue):
         super().__init__()
@@ -269,5 +268,3 @@ def main():
 
 if __name__ == "__main__":
     pass
-    # Запускается test script-ами, поэтому если вам нужен чистый консольный пуск, 
-    # смените на `main()`, но для тестов оставляем просто импорт `pass`.
