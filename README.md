@@ -76,4 +76,3 @@ python -m pytest -q tests/test_ipc_policies.py tests/test_mode_checker.py
 python -m pytest -q tests/test_student_tasks.py
 ```
 *Ожидаемый результат: 100% Passed.*
-```
