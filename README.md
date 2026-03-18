@@ -1,7 +1,7 @@
 # CybIMN_TL
 АРХИТЕКТУРА КИБЕРИММУННОГО СВЕТОФОРА ПРОЕКТА CORTEX
 
-```markdown
+
 # 🚦 Кибериммунный светофор | Оснащен ядром QD³
 
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue?logo=python)
